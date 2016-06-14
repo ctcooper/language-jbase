@@ -3,58 +3,84 @@
 'fileTypes': ['b']
 
 'patterns': [
-    {
-        'match': '\<\d\+\>'
-        'name': 'constant.numeric.jbase'
-    },
-    {
-        'match': '\<\d\+\.\d*\>'
-        'name': 'constant.numeric.dot.jbase'
-    },
-    {
-        'match': '\.\d\+\>'
-        'name': 'constant.numeric.startingdot.jbase'
-    },
-    {
-        'match': '\s[-+\*/%]\s'
-        'name': 'constant.operator.jbase'
-    },
-    {
-        'match': '='
-        'name': 'constant.operator.jbase'
-    },
-    {
-        'match': '[-+\*/%]='
-        'name': 'constant.operator.jbase'
-    },
-    {
-        'match': '-\|=\|[:()\[\]<>+\*^/\\]'
-        'name': 'constant.operator.jbase'
-    },
-    {
-        'match': '\\b(function)\\s+(\\w+)\\s*\\(.*\\)'
-        'captures':
-            '1':
-                'name': 'keyword.control.jbase'
-            '2':
-                'name': 'entity.name.function.jbase'
-        'name': 'meta.function.jbase'
-    },
-
-    {
-      'begin': '^\\s*\*'
-      'captures':
-          '0':
-              'name': 'punctuation.definition.comment.jbase'
-      'end': '$'
-      'name': 'comment.block.jbase'
-    },
-    {
-      'begin': ';\\s*\*'
-      'captures':
-          '0':
-              'name': 'punctuation.definition.comment.jbase'
-      'end': '$'
-      'name': 'comment.block.jbase'
-    }
+  {
+    'begin': '\''
+    'end': '\''
+    'name': 'string.quoted.single.jbase'
+  },
+  {
+    'begin': '\"'
+    'end': '\"'
+    'name': 'string.quoted.double.jbase'
+  },
+  {
+    'begin': '^\\s*\\*'
+    'end': '\\n'
+    'name': 'comment.line.jbase'
+  },
+  {
+    'begin': ';\\s*\\*'
+    'end': '\\n'
+    'name': 'comment.line.jbase'
+  },
+  {
+    'match': '\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))\\b'
+    'name': 'constant.numeric.jbase'
+  },
+  {
+    'match': '''(?x)\\b(?<!\\$)
+                (ABORT|BEFORE|BREAK|CALL|CALLC|CALLDOTNET|CALLJ|CALLONEXIT|CAPTURING|CHAIN|CHANGE|CLEAR|CLEARCOMMON|CLEARDATA|CLEARFILE|CLEARINPUT|CLEARSELECT|CLOSE|CLOSESEQ|COLLECTDATA|COMMON|CONTINUE|CONVERT|CREATE|CRT|DATA|DEBUG|DEFC|DEFCE|DEFFUN|DEL|DELETE|DELETELIST|DELETESEQ|DELETEU|DIM|DIMENSION|ECHO|ENTER|EQU|EQUATE|EXECUTE|EXIT|FILELOCK|FILEUNLOCK|FIND|FINDSTR|FLUSH|FMT|FMTS|FOLD|FOOTING|FORMAT|FORMLIST|FUNCTION|GET|GETLIST|GETX|HEADING|HEADINGE|HEADINGN|HUSH|IF|IN|INPUT|INPUTNULL|INS|LOCATE|LOCK|MAT|MATBUILD|MATPARSE|MATREAD|MATREADU|MATWRITE|MATWRITEU|MSLEEP|NOBUFF|NULL|OBJEXCALLBACK|OPEN|OPENDEV|OPENPATH|OPENSEQ|OPENSER|OSBREAD|OSBWRITE|OSCLOSE|OSDELETE|OSOPEN|OSREAD|OSWRITE|OUT|PAGE|PAUSE|PASSLIST|PCPERFORM|PERFORM|PRECISION|PRINT|PRINTER|PRINTERR|PROCREAD|PROCWRITE|PROGRAM|PROMPT|READ|READBLK|READL|READLIST|READNEXT|READSELECT|READSEQ|READT|READU|READV|READVL|READVU|READXML|RELEASE|REMOVE|RETURN|RETURNING|REWIND|RQM|RTNDATA|RTNLIST|SEEK|SELECT|SETTING|SEND|SENDX|SLEEP|SSELECT|SSELECTN|SSELECTV|STOP|SUBROUTINE|TIMEOUT|UNLOCK|UDTEXECUTE|WAKE|WEOF|WEOFSEQ|WRITE|WRITEBLK|WRITELIST|WRITESEQ|WRITET|WRITEU|WRITEV|WRITEVU|WRITEXML)\\b
+             '''
+    'name': 'keyword.statement.jbase'
+  },
+  {
+    'match': '''(?x)\\b(?<!\\$)
+                (AND|EQ|GT|LT|MATCH|MATCHES|NE|NOT|OFF|ON|OR)\\b
+             '''
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '\\s[-+\*/%]\\s'
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '\='
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '(<<|>>>?|~|\\^)'
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '((&|\\^|\\||<<|>>>?)=)'
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '(===?|!=|<=|>=|<>|<|>)'
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '([:+*/%-]=)'
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '(=)'
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '(\\-\\-|\\+\\+)'
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '(\\-|\\+|\\*|\\/|%)'
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '(!|&&|\\|\\|)'
+    'name': 'constant.operator.jbase'
+  },
+  {
+    'match': '(\\||&)'
+    'name': 'constant.operator.jbase'
+  }
 ]

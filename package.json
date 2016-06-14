@@ -8,7 +8,7 @@
   "activationCommands": {
     "atom-workspace": "language-jbase:toggle"
   },
-  "repository": "https://github.com/atom/language-jbase",
+  "repository": "https://github.com/clajtayl/language-jbase",
   "license": "Clay Taylor",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
