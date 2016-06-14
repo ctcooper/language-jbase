@@ -1,0 +1,60 @@
+'scopeName': 'source.jbase'
+'name': 'jBase'
+'fileTypes': ['b']
+
+'patterns': [
+    {
+        'match': '\<\d\+\>'
+        'name': 'constant.numeric.jbase'
+    },
+    {
+        'match': '\<\d\+\.\d*\>'
+        'name': 'constant.numeric.dot.jbase'
+    },
+    {
+        'match': '\.\d\+\>'
+        'name': 'constant.numeric.startingdot.jbase'
+    },
+    {
+        'match': '\s[-+\*/%]\s'
+        'name': 'constant.operator.jbase'
+    },
+    {
+        'match': '='
+        'name': 'constant.operator.jbase'
+    },
+    {
+        'match': '[-+\*/%]='
+        'name': 'constant.operator.jbase'
+    },
+    {
+        'match': '-\|=\|[:()\[\]<>+\*^/\\]'
+        'name': 'constant.operator.jbase'
+    },
+    {
+        'match': '\\b(function)\\s+(\\w+)\\s*\\(.*\\)'
+        'captures':
+            '1':
+                'name': 'keyword.control.jbase'
+            '2':
+                'name': 'entity.name.function.jbase'
+        'name': 'meta.function.jbase'
+    },
+
+    {
+      'begin': '^\\s*\*'
+      'captures':
+          '0':
+              'name': 'punctuation.definition.comment.jbase'
+      'end': '$'
+      'name': 'comment.block.jbase'
+    },
+    {
+      'begin': ';\\s*\*'
+      'captures':
+          '0':
+              'name': 'punctuation.definition.comment.jbase'
+      'end': '$'
+      'name': 'comment.block.jbase'
+    }
+]

@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle language-jbase",
+        "command": "language-jbase:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "language-jbase",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "language-jbase:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

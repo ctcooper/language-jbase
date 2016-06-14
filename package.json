@@ -1,0 +1,18 @@
+{
+  "name": "language-jbase",
+  "main": "./lib/language-jbase",
+  "version": "0.0.0",
+  "description": "jBase Language and Syntax Highlighting",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "language-jbase:toggle"
+  },
+  "repository": "https://github.com/atom/language-jbase",
+  "license": "Clay Taylor",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}
