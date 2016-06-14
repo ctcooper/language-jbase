@@ -1,10 +1,9 @@
 {
   "name": "language-jbase",
   "main": "./lib/language-jbase",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "jBase Language and Syntax Highlighting",
-  "keywords": [
-  ],
+  "keywords": [],
   "activationCommands": {
     "atom-workspace": "language-jbase:toggle"
   },
@@ -13,6 +12,5 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
