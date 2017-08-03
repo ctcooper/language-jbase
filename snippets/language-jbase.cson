@@ -1,0 +1,52 @@
+'.source.jbase':
+  'IF Condition':
+    'prefix': 'if'
+    'body': 'IF ${1:/* condition */} THEN\n\t${2:/* code */}\nEND'
+  'IF ELSE':
+    'prefix': 'ife'
+    'body': 'IF ${1:/* condition */} THEN\n\t${2:/* code */}\nEND ELSE\n\t${3:/* code */}\nEND'
+  'DISPLAY':
+    'prefix': 'display'
+    'body': 'DISPLAY ${1:/* condition */}'
+  'LOOP WHILE':
+      'prefix': 'loop'
+      'body': 'LOOP\n\t${1:/* code */}\nWHILE ${2:/* condition */}\nREPEAT'
+  'GOSUB':
+    'prefix': 'gosub'
+    'body': 'GOSUB ${1:/* subroutine */}'
+  'FIND':
+    'prefix': 'find'
+    'body': 'FIND ${1:/* string */} IN ${2:/* string */} SETTING Ap THEN\n\t${3:/* code */}\nEND'
+  'FIND ELSE':
+    'prefix': 'finde'
+    'body': 'FIND ${1:/* string */} IN ${2:/* string */} SETTING Ap THEN\n\t${3:/* code */}\nEND ELSE\n\t${4:/* code */}\nEND'
+  'FINDSTR':
+    'prefix': 'findstr'
+    'body': 'FINDSTR ${1:/* string */} IN ${2:/* string */} SETTING Ap THEN\n\t${3:/* code */}\nEND'
+  'FINDSTR ELSE':
+    'prefix': 'findstre'
+    'body': 'FINDSTR ${1:/* string */} IN ${2:/* string */} SETTING Ap THEN\n\t${3:/* code */}\nEND ELSE\n\t${4:/* code */}\nEND'
+  'Subroutine':
+    'prefix': 'subroutine'
+    'body': '${1:/* subroutine */}:\n\t${2:/* code */}\nRETURN'
+  'CONVERT':
+    'prefix': 'convert'
+    'body': 'CONVERT "${1:/* string */}" TO "${2:/* string */}" IN ${3:/* variable */}'
+  'TRIM':
+    'prefix': 'trim'
+    'body': 'TRIM (${1:/* condition */}, "${2:/* condition */}", "${3:/* condition */}")'
+  'FIELD':
+    'prefix': 'field'
+    'body': 'FIELD (${1:/* condition */}, "${2:/* condition */}", ${3:/* numeric position */})'
+  'FOR':
+    'prefix': 'for'
+    'body': 'FOR count = 1 TO ${1:/* condition */}\n\t${2:/* code */}\nNEXT count'
+  'CASE':
+    'prefix': 'case'
+    'body': 'BEGIN CASE\n\tCASE ${1:/* condition */}\n\t\t${2:/* code */}\n\tCASE 1\n\t\t${3:/* default */}\nEND CASE'
+  'OPENSEQ':
+    'prefix': 'openseq'
+    'body': 'OPENSEQ ${1:/* pathFrom */} TO ${2:/* pathTo */} ELSE\n\tABORT ${3:/* ex:201 */}, "${4:/* nameOfFile */}"\nEND\n\n${5:/* code */}\n\nCLOSESEQ ${2:/* pathTo */}'
+  'READSEQ':
+    'prefix': 'readseq'
+    'body': 'READSEQ ${1:/* condition ex:line */} FROM ${2:/* pathTo */} THEN\n\t${3:/* code */}\nEND'
