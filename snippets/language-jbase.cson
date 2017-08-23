@@ -1,52 +1,121 @@
 '.source.jbase':
-  'IF Condition':
-    'prefix': 'if'
-    'body': 'IF ${1:/* condition */} THEN\n\t${2:/* code */}\nEND'
-  'IF ELSE':
-    'prefix': 'ife'
-    'body': 'IF ${1:/* condition */} THEN\n\t${2:/* code */}\nEND ELSE\n\t${3:/* code */}\nEND'
-  'DISPLAY':
-    'prefix': 'display'
-    'body': 'DISPLAY ${1:/* condition */}'
-  'LOOP WHILE':
-      'prefix': 'loop'
-      'body': 'LOOP\n\t${1:/* code */}\nWHILE ${2:/* condition */}\nREPEAT'
-  'GOSUB':
-    'prefix': 'gosub'
-    'body': 'GOSUB ${1:/* subroutine */}'
-  'FIND':
-    'prefix': 'find'
-    'body': 'FIND ${1:/* string */} IN ${2:/* string */} SETTING Ap THEN\n\t${3:/* code */}\nEND'
-  'FIND ELSE':
-    'prefix': 'finde'
-    'body': 'FIND ${1:/* string */} IN ${2:/* string */} SETTING Ap THEN\n\t${3:/* code */}\nEND ELSE\n\t${4:/* code */}\nEND'
-  'FINDSTR':
-    'prefix': 'findstr'
-    'body': 'FINDSTR ${1:/* string */} IN ${2:/* string */} SETTING Ap THEN\n\t${3:/* code */}\nEND'
-  'FINDSTR ELSE':
-    'prefix': 'findstre'
-    'body': 'FINDSTR ${1:/* string */} IN ${2:/* string */} SETTING Ap THEN\n\t${3:/* code */}\nEND ELSE\n\t${4:/* code */}\nEND'
-  'Subroutine':
-    'prefix': 'subroutine'
-    'body': '${1:/* subroutine */}:\n\t${2:/* code */}\nRETURN'
+  'CASE':
+    'prefix': 'ca'
+    'body': 'BEGIN CASE\n\tCASE ${1:/* expression statement(s) */}\n\t\t${2:/* statement(s) */}\n\tCASE 1\n\t\t${3:/* default */}\nEND CASE'
   'CONVERT':
     'prefix': 'convert'
-    'body': 'CONVERT "${1:/* string */}" TO "${2:/* string */}" IN ${3:/* variable */}'
-  'TRIM':
-    'prefix': 'trim'
-    'body': 'TRIM (${1:/* condition */}, "${2:/* condition */}", "${3:/* condition */}")'
+    'body': 'CONVERT "${1:/* expression1 */}" TO "${2:/* expression2 */}" IN ${3:/* expression3 */}'
+  'DATE':
+    'prefix': 'date'
+    'body': 'DATE()'
+  'DEFFUN':
+    'prefix': 'deffun'
+    'body': 'DEFFUN ${1:/* FuncName */}()'
+  'DISPLAY':
+    'prefix': 'display'
+    'body': 'DISPLAY ${1:/* expression */}'
+  'EQUATE':
+    'prefix': 'equate'
+    'body': 'EQUATE ${1:/* symbol */} TO ${2:/* expression */}'
+  'EXECUTE':
+    'prefix': 'execute'
+    'body': 'EXECUTE ${1:/* expression */}'
   'FIELD':
     'prefix': 'field'
-    'body': 'FIELD (${1:/* condition */}, "${2:/* condition */}", ${3:/* numeric position */})'
+    'body': 'FIELD(${1:/* string */}, "${2:/* delimiter */}", ${3:/* numeric position */})'
+  'FIND':
+    'prefix': 'find'
+    'body': 'FIND ${1:/* expression1 */} IN ${2:/* expression2 */} SETTING PRT THEN\n\t${3:/* statement */}\nEND'
+  'FIND ELSE':
+    'prefix': 'finde'
+    'body': 'FIND ${1:/* expression1 */} IN ${2:/* expression2 */} SETTING PRT THEN\n\t${3:/* statement1 */}\nEND ELSE\n\t${4:/* statement2 */}\nEND'
+  'FINDSTR':
+    'prefix': 'findstr'
+    'body': 'FINDSTR ${1:/* expression1 */} IN ${2:/* expression2 */} SETTING PRT THEN\n${3:/* statement */}\nEND'
+  'FINDSTR ELSE':
+    'prefix': 'findstre'
+    'body': 'FINDSTR ${1:/* expression1 */} IN ${2:/* expression2 */} SETTING Ap THEN\n\t${3:/* statement1 */}\nEND ELSE\n\t${4:/* statement2 */}\nEND'
   'FOR':
     'prefix': 'for'
-    'body': 'FOR count = 1 TO ${1:/* condition */}\n\t${2:/* code */}\nNEXT count'
-  'CASE':
-    'prefix': 'case'
-    'body': 'BEGIN CASE\n\tCASE ${1:/* condition */}\n\t\t${2:/* code */}\n\tCASE 1\n\t\t${3:/* default */}\nEND CASE'
+    'body': 'FOR ${1:/* var */} = ${2:/* expression1 */} TO ${3:/* expression2 */}\n\t${2:/* statement */}\nNEXT ${1:/* var */}'
+  'FUNCTION':
+    'prefix': 'function'
+    'body': 'FUCNTION ${1:/* name */}(${2:/* variable(s) */})\n\t${3:/* statement(s) */}\n\tRETURN(${4:/* result(s) */})'
+  'GOSUB':
+    'prefix': 'gosub'
+    'body': 'GOSUB ${1:/* label */}'
+  'ICONV':
+    'prefix': 'iconv'
+    'body': 'ICONV(${1:/* expression1 */}, ${2:/* expression2 */})'
+  'IF Condition':
+    'prefix': 'if'
+    'body': 'IF ${1:/* expression */} THEN\n\t${2:/* statement */}\nEND'
+  'IF ELSE':
+    'prefix': 'ife'
+    'body': 'IF ${1:/* expression */} THEN\n\t${2:/* statement1 */}\nEND ELSE\n\t${3:/* statement2 */}\nEND'
+  'LEFT':
+    'prefix': 'left'
+    'body': 'LEFT(${1:/* expression */}, ${2:/* length */})'
+  'LEN':
+    'prefix': 'length'
+    'body': 'LEN(${1:/* expression */})'
+  'LOOP WHILE':
+      'prefix': 'loopwhile'
+      'body': 'LOOP\n\t${1:/* statement1 */}\nWHILE ${2:/* expression */}\n\t${3:/* statement2 */}\nREPEAT'
+  'LOOP UNTIL':
+      'prefix': 'loopuntil'
+      'body': 'LOOP\n\t${1:/* statement1 */}\nUNTIL ${2:/* expression */}\n\t${3:/* statement2 */}\nREPEAT'
+  'MSLEEP':
+    'prefix': 'msleep'
+    'body': 'MSLEEP ${1:/* milliseconds */}'
+  'NUM':
+    'prefix': 'num'
+    'body': 'NUM(${1:/* expression */})'
+  'OCONV':
+    'prefix': 'oconv'
+    'body': 'OCONV(${1:/* expression1 */}, ${2:/* expression2 */})'
+  'OPEN':
+    'prefix': 'open'
+    'body': 'OPEN ${1:/* expression1 */} TO ${2:/* variable */}'
   'OPENSEQ':
     'prefix': 'openseq'
-    'body': 'OPENSEQ ${1:/* pathFrom */} TO ${2:/* pathTo */} ELSE\n\tABORT ${3:/* ex:201 */}, "${4:/* nameOfFile */}"\nEND\n\n${5:/* code */}\n\nCLOSESEQ ${2:/* pathTo */}'
+    'body': 'OPENSEQ ${1:/* pathFrom(File) */} TO ${2:/* pathTo(FileVar) */} ELSE\nEND\n\n\t${5:/* statement */}\n\nCLOSESEQ ${2:/* pathTo(FileVar) */}'
+  'PRECISION':
+    'prefix': 'precision'
+    'body': 'PRECISION ${1:/* integer */}'
+  'READ':
+    'prefix': 'read'
+    'body': 'READ ${1:/* variable1 */} FROM ${2:/* variable2 */}, ${3:/* expression */}'
   'READSEQ':
     'prefix': 'readseq'
-    'body': 'READSEQ ${1:/* condition ex:line */} FROM ${2:/* pathTo */} THEN\n\t${3:/* code */}\nEND'
+    'body': 'READSEQ ${1:/* variable ex:line */} FROM ${2:/* pathTo(FileVar) */} THEN\n\t${3:/* statement(s) */}\nEND'
+  'READU':
+    'prefix': 'readu'
+    'body': 'READU ${1:/* variable1 */} FROM ${2:/* variable2 */}, ${3:/* expression */} SETTING ${4:/* setvar */} ON ERROR'
+  'READV':
+    'prefix': 'readv'
+    'body': 'READV ${1:/* variable1 */} FROM ${2:/* variable2 */}, ${3:/* expression1 */}, ${4:/* expression2 */} THEN\n\t${5:/* code */}\nEND'
+  'SLEEP':
+    'prefix': 'sleep'
+    'body': 'SLEEP ${1:/* seconds or time ex: 4 or "14:00" */}'
+  'Subroutine':
+    'prefix': 'subroutine'
+    'body': '${1:/* label */}:\n\t${2:/* statement */}\nRETURN'
+  'SUBSTRINGs':
+    'prefix': 'substrings'
+    'body' : 'SUBSTRINGS (${1:/* DynArr */}, ${2:/* Start */}, ${3:/* Length */})'
+  'SQUOTE':
+    'prefix': 'squote'
+    'body': 'SQUOTE(${1:/* expression */})'
+  'TRIM':
+    'prefix': 'trim'
+    'body': 'TRIM(${1:/* expression1 */}, "${2:/* expression2 */}", "${3:/* expression3 */}")'
+  'UPCASE':
+    'prefix': 'upcase'
+    'body': 'UPCASE(${1:/* expression */})'
+  'WRITELIST':
+    'prefix': 'writelist'
+    'body': 'WRITELIST ${1:/* variable */} ON ${2:/* expression */}'
+  'WRITEU':
+    'prefix': 'writeu'
+    'body': 'WRITEU ${1:/* variable1 */} TO ${2:/* variable2 */}, ${3:/* expression */} SETTING ${4:/* setvar */} ON ERROR'
