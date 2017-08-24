@@ -31,7 +31,7 @@
     'body': 'FIND ${1:/* expression1 */} IN ${2:/* expression2 */} SETTING PRT THEN\n\t${3:/* statement1 */}\nEND ELSE\n\t${4:/* statement2 */}\nEND'
   'FINDSTR':
     'prefix': 'findstr'
-    'body': 'FINDSTR ${1:/* expression1 */} IN ${2:/* expression2 */} SETTING PRT THEN\n${3:/* statement */}\nEND'
+    'body': 'FINDSTR ${1:/* expression1 */} IN ${2:/* expression2 */} SETTING PRT THEN\n\t${3:/* statement */}\nEND'
   'FINDSTR ELSE':
     'prefix': 'findstre'
     'body': 'FINDSTR ${1:/* expression1 */} IN ${2:/* expression2 */} SETTING Ap THEN\n\t${3:/* statement1 */}\nEND ELSE\n\t${4:/* statement2 */}\nEND'
@@ -40,7 +40,7 @@
     'body': 'FOR ${1:/* var */} = ${2:/* expression1 */} TO ${3:/* expression2 */}\n\t${2:/* statement */}\nNEXT ${1:/* var */}'
   'FUNCTION':
     'prefix': 'function'
-    'body': 'FUCNTION ${1:/* name */}(${2:/* variable(s) */})\n\t${3:/* statement(s) */}\n\tRETURN(${4:/* result(s) */})'
+    'body': 'FUCNTION ${1:/* name */}(${2:/* variable(s) */})\n\t${3:/* statement(s) */}\nRETURN(${4:/* result(s) */})'
   'GOSUB':
     'prefix': 'gosub'
     'body': 'GOSUB ${1:/* label */}'
